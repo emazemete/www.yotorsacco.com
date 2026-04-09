@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vacancy | Yotor SACCO</title>
+
+  <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #222;
+      --header-bg: #0d47a1;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.18);
+      --card-bg: #f4f7fb;
+      --select-bg: #ffffff;
+      --select-text: #0d47a1;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --header-bg: #1e1e1e;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.12);
+      --card-bg: #1b1b1b;
+      --select-bg: #2c2c2c;
+      --select-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background: var(--header-bg);
+      color: var(--header-text);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      position: relative;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--header-text);
+      padding-left: 100px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background:var(--select-text);
+      padding: 3px;
+    }
+
+    .logo h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* NAV */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--header-text);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      display: block;
+    }
+
+    .nav-links a:hover
+     {
+      background: var(--menu-hover);
+    }
+
+     .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      color: #0d47a1;
+      padding: 12px 15px;
+      border-radius: 0;
+      font-size: 15px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #e3f2fd;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* LANGUAGE */
+    .language-select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: var(--select-text);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      background:var(--select-text);
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* MOBILE BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--header-text);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* RIGHT ACTIONS */
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1000px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        display: none;
+        gap: 8px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a,
+      .language-select,
+      .theme-toggle {
+        width: 100%;
+      }
+
+      .right-actions {
+        display: none;
+      }
+
+      .nav-mobile-extra {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (min-width: 1001px) {
+      .nav-mobile-extra {
+        display: none;
+      }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f8fc;
+    }
+
+    .vacancy-section {
+      width: 100%;
+      padding: 70px 8%;
+      background: #ffffff;
+    }
+
+    .vacancy-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .vacancy-header h2 {
+      font-size: 22px;
+      color: #004aad;
+      margin-bottom: 12px;
+    }
+
+    .vacancy-header p {
+      font-size: 16px;
+      color: #666;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .vacancy-status-box {
+      background:rgb(247, 246, 246);
+      color:var(--select-text);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 25px rgba(0,74,173,0.18);
+    }
+
+    .vacancy-status-box i {
+      font-size: 22x;
+      margin-bottom: 20px;
+    }
+
+    .vacancy-status-box h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .vacancy-status-box p {
+      font-size: 17px;
+      color: #666;
+      line-height: 2.0;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .vacancy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .vacancy-card {
+      background: #f9fbff;
+      padding: 28px 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+    }
+
+    .vacancy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,74,173,0.12);
+    }
+
+    .vacancy-card i {
+      font-size: 22px;
+      color: #004aad;
+      margin-bottom: 18px;
+    }
+
+    .vacancy-card h4 {
+      font-size: 22px;
+      color: #222;
+      margin-bottom: 12px;
+    }
+
+    .vacancy-card p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .notice-box {
+      background: #f9fbff;
+      padding: 35px 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .notice-box h3 {
+      font-size: 22px;
+      color: #004aad;
+      margin-bottom: 20px;
+      border-left: 5px solid #004aad;
+      padding-left: 12px;
+    }
+
+    .notice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      background: #fff;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      transition: 0.3s ease;
+    }
+
+    .notice-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 16px rgba(0,74,173,0.10);
+    }
+
+    .notice-item i {
+      font-size: 22px;
+      color: #004aad;
+      min-width: 28px;
+      margin-top: 3px;
+    }
+
+    .notice-item h4 {
+      font-size: 18px;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .notice-item p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .cta-box {
+      text-align: center;
+      background: #fff;;
+      padding: 45px 25px;
+      border-radius: 20px;
+      color:#444;
+      box-shadow: 0 10px 25px rgba(0,74,173,0.18);
+    }
+
+    .cta-box h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .cta-box p {
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      line-height: 1.8;
+      color: #0760f9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      color: #004aad;
+      background: #f1f5ff;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #f1f5ff;
+      transform: translateY(-3px);
+    }
+
+    .cta-btn.secondary {
+      background: blue;
+      color: white;
+      border: 2px solid #fff;
+    }
+
+    .cta-btn.secondary:hover {
+      background: blue;
+    }
+
+    @media (max-width: 768px) {
+      .vacancy-header h2 {
+        font-size: 22px;
+      }
+
+      .vacancy-status-box h3,
+      .cta-box h3 {
+        font-size: 22px;
+      }
+
+      .notice-box h3 {
+        font-size: 24px;
+      }
+    }
+    
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* FOOTER */
+    
+    /* FOOTER */
+    footer {
+      background: #0d47a1;
+       color: #cbd5e1;
+      padding: 60px 20px 25px;
+      margin-top: 50px;
+      font-size: 14px;
+      
+      
+    }
+
+    .footer-container {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 35px;
+    }
+
+    .footer-box h3 {
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      
+    }
+
+    .footer-box h3::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background: #90caf9;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 3px;
+    }
+
+    .footer-box p,
+    .footer-box a,
+    .footer-box li {
+     color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.9;
+      text-decoration: none;
+      list-style: none;
+      transition: 0.3s;
+      
+      
+    }
+
+    .footer-box ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+      
+    }
+
+    .footer-box ul li a:hover {
+      color: #e1cbcb;
+      padding-left: 6px;
+      
+    }
+
+    /* COMPANY LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #3b82f6;
+      padding: 4px;
+      object-fit: cover;
+    }
+
+    .footer-logo h2 {
+      font-size: 15px;
+       color: #cbd5e1;
+    }
+
+    /* ICON LIST */
+    .icon-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+       color: #cbd5e1;
+    }
+
+    .icon-text i {
+      width: 22px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #cbd5e1;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgb(124, 124, 203);;
+      color: #cbd5e1;
+      transform: translateY(-4px);
+      
+    }
+
+    /* APP BUTTONS */
+    .app-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .app-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      color: #cbd5e1;
+       text-decoration: none;
+       font-size: 15px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .app-buttons a:hover {
+      background: rgb(124, 124, 203);
+      color: #cbd5e1;
+    }
+
+    .app-buttons i {
+      font-size: 22px;
+    }
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+      background: #0f172a;
+      text-align: left;
+      padding-left:100px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 0px;
+      padding-top: 20px;
+      font-size: 15px;
+      color: #dbeafe;
+      height: 70px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    @media (max-width: 768px) {
+      .footer-logo h2 {
+        font-size: 20px;
+      }
+
+      .footer-box h3 {
+        font-size: 20px;
+      }
+
+      .footer-box p,
+      .footer-box a,
+      .footer-box li {
+        font-size: 15px;
+      }
+
+      .app-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+     .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .quick-links-box {
+      max-width: 350px;
+    }
+
+    .quick-links-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .quick-links-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    .quick-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 15px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .quick-links a i {
+      color: #3b82f6;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      background: rgba(59, 130, 246, 0.12);
+      color: #ffffff;
+      transform: translateX(6px);
+    }
+
+    .quick-links a:hover i {
+      color: #60a5fa;
+    }
+
+    @media (max-width: 768px) {
+      .quick-links-title {
+        font-size: 24px;
+      }
+
+      .quick-links a {
+        font-size: 15px;
+      }
+    }
+    
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="image/logo1.jpg" alt="Yotor SACCO Logo">
+
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- NAV LINKS -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li class="dropdown" id="serviceDropdown">
+          <a href="services.html" onclick="toggleDropdown(event)">Service ▾</a>
+          <div class="dropdown-menu">
+            <a href="news.html">Saving</a>
+            <a href="loan.html">Loan</a>
+            <a href="training.html">Training/Consultant</a>
+          </div>
+        </li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="#">Vacancy</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+
+        <!-- MOBILE EXTRA -->
+        <div class="nav-mobile-extra">
+          <select class="language-select">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+          </select>
+
+          <button class="theme-toggle" onclick="toggleTheme()" id="mobileThemeBtn">
+            🌙 Dark / ☀ Bright
+          </button>
+        </div>
+      </ul>
+
+      <!-- DESKTOP RIGHT SIDE -->
+      <div class="right-actions">
+        <select class="language-select">
+          <option value="en">English</option>
+          <option value="am">Amharic</option>
+        </select>
+
+       <button class="theme-toggle" onclick="toggleTheme()" id="desktopThemeBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <section class="vacancy-section">
+  
+    <!-- Vacancy Status -->
+    <div class="vacancy-status-box">
+      <i class="fas fa-briefcase"></i>
+      <h3>No Positions at the Moment</h3>
+      <p>
+        Thank you for your interest in joining Yotor SACCO.
+        Currently, there are no open vacancies available. Please check back later for future job opportunities.
+      </p>
+    </div>
+
+    <!-- Additional Features -->
+    <div class="vacancy-grid">
+
+      <div class="vacancy-card">
+        <i class="fas fa-users"></i>
+        <h4>Professional Work Environment</h4>
+        <p>
+          Yotor SACCO values teamwork, integrity, and professionalism in delivering quality financial services.
+        </p>
+      </div>
+
+      <div class="vacancy-card">
+        <i class="fas fa-chart-line"></i>
+        <h4>Career Growth</h4>
+        <p>
+          We believe in continuous learning and development for employees through training and work experience.
+        </p>
+      </div>
+
+      <div class="vacancy-card">
+        <i class="fas fa-handshake"></i>
+        <h4>Community Impact</h4>
+        <p>
+          Working with Yotor SACCO means contributing to financial inclusion and improving members’ lives.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Recruitment Notice -->
+    <div class="notice-box">
+      <h3>Recruitment Information</h3>
+
+      <div class="notice-item">
+        <i class="fas fa-bell"></i>
+        <div>
+          <h4>Stay Updated</h4>
+          <p>
+            New job opportunities will be announced on our website and official communication channels whenever available.
+          </p>
+        </div>
+      </div>
+
+      <div class="notice-item">
+        <i class="fas fa-envelope-open-text"></i>
+        <div>
+          <h4>Application Process</h4>
+          <p>
+            When vacancies are announced, applicants will be required to submit complete application documents before the deadline.
+          </p>
+        </div>
+      </div>
+
+      <div class="notice-item">
+        <i class="fas fa-file-alt"></i>
+        <div>
+          <h4>Required Documents</h4>
+          <p>
+            Typical recruitment requirements may include CV, educational credentials, identification, and supporting documents.
+          </p>
+        </div>
+      </div>
+
+      <div class="notice-item">
+        <i class="fas fa-user-check"></i>
+        <div>
+          <h4>Fair Recruitment</h4>
+          <p>
+            Yotor SACCO is committed to transparent, fair, and merit-based recruitment practices.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-box">
+      <h3>Interested in Future Opportunities?</h3>
+      <p>
+        Even though there are no vacancies at the moment, we encourage interested applicants to stay connected for future openings.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn">Apply Later</a>
+        <a href="#" class="cta-btn secondary">Contact HR</a>
+      </div>
+    </div>
+  </section>
+ <footer>
+    <div class="footer-container">
+
+      <!-- COMPANY -->
+     
+   <!-- FOLLOW US -->
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/Yotor-Saccos-ltd-100086498942030/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/YotorSACCO"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://www.instagram.com/yotor_sacco/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/yotor-sacco"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@yotorsacco"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-box">
+        <h3>Services</h3>
+        <div class="icon-text">
+          <a href="saving.html"><i class="fas fa-piggy-bank"></i> <span>Saving</span></a></div>
+        <div class="icon-text">
+          <a href="loan.html"><i class="fas fa-hand-holding-dollar"></i> <span>Loan</span></a></div>
+        <div class="icon-text">
+          <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> <span>Training</span></a></div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="footer-box">
+        <h3>Location</h3>
+        <div class="icon-text"><i class="fas fa-map-marker-alt"></i> <span>Addis Ababa, Ethiopia</span></div>
+        <div class="icon-text"><i class="fas fa-building"></i> <span>Main Office Mexico Debrework Building</span></div>
+        <div class="icon-text"><i class="fas fa-location-dot"></i> <span>Near Kekar Bulding</span></div>
+      </div>
+
+      <!-- CONTACT US -->
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <div class="icon-text"><i class="fas fa-phone"></i> <span>+251 944448333</span></div>
+        <div class="icon-text"><i class="fas fa-envelope"></i> <span>info@yotorsaccco.com</span></div>
+        <div class="icon-text"><i class="fas fa-globe"></i> <span>www.yotorsaccco.com</span></div>
+      </div>
+    <section class="quick-links-section">
+    <div class="container">
+      <div class="quick-links-box">
+        <h2 class="quick-links-title">Quick Links</h2>
+
+        <ul class="quick-links">
+          <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+          <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+     
+      <!-- MOBILE APP -->
+      <div class="footer-box">
+        <h3>Get Our Mobile App</h3>
+        <p>Download our app for easy access to saving, loan, and member services.</p>
+        <div class="app-buttons">
+          <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="#"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yotor SACCO. All Rights Reserved.</p>
+    </div>
+
+  <Script>
+  function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        localStorage.setItem("theme", "light");
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    };
+  </script>
+</body>
+</html>

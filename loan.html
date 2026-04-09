@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+       
+ :root{
+      --bg:#d1e4f2;
+      --card: rgba(255,255,255,.06);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.75);
+      --accent:#7c5cff;
+      --accent2:#22d3ee;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.20), transparent 55%),
+                  var(--bg);
+      color: black;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1500px; margin:0 auto; padding:0 18px;}
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    
+ :root {
+      --bg-color: #ffffff;
+      --text-color: #222;
+      --header-bg: #0d47a1;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.18);
+      --card-bg: #f4f7fb;
+      --select-bg: #ffffff;
+      --select-text: #0d47a1;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --header-bg: #1e1e1e;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.12);
+      --card-bg: #1b1b1b;
+      --select-bg: #2c2c2c;
+      --select-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background: var(--header-bg);
+      color: var(--header-text);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      position: relative;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--header-text);
+      padding-left: 100px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background:#0d47a1;
+      padding: 3px;
+    }
+
+    .logo h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* NAV */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--header-text);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      display: block;
+    }
+
+    .nav-links a:hover {
+      background: var(--menu-hover);
+    }
+
+     .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      color: #0d47a1;
+      padding: 12px 15px;
+      border-radius: 0;
+      font-size: 15px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #e3f2fd;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* LANGUAGE */
+    .language-select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: #0d47a1;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      background:#0d47a1;
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* MOBILE BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--header-text);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* RIGHT ACTIONS */
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1000px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        display: none;
+        gap: 8px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a,
+      .language-select,
+      .theme-toggle {
+        width: 100%;
+      }
+
+      .right-actions {
+        display: none;
+      }
+
+      .nav-mobile-extra {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (min-width: 1001px) {
+      .nav-mobile-extra {
+        display: none;
+      }
+    }
+    .hero{
+      position:relative;
+      min-height: calc(100vh - 62px);
+      display:flex;
+      align-items:stretch;
+    }
+ 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+   
+
+    header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      padding-top: 150px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      color: #0d6efd;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #0d6efd;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 10px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #0d6efd;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card-content p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.9;
+      
+    }
+
+    .more-text {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .btn {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 18px;
+      border: none;
+      background: #0d6efd;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #084298;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* FOOTER */
+    
+    /* FOOTER */
+    footer {
+      background: #0d47a1;
+       color: #cbd5e1;
+      padding: 60px 20px 25px;
+      margin-top: 50px;
+      font-size: 14px;
+      
+      
+    }
+
+    .footer-container {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 35px;
+    }
+
+    .footer-box h3 {
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      
+    }
+
+    .footer-box h3::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background: #90caf9;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 3px;
+    }
+
+    .footer-box p,
+    .footer-box a,
+    .footer-box li {
+     color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.9;
+      text-decoration: none;
+      list-style: none;
+      transition: 0.3s;
+      
+      
+    }
+
+    .footer-box ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+      
+    }
+
+    .footer-box ul li a:hover {
+      color: #e1cbcb;
+      padding-left: 6px;
+      
+    }
+
+    /* COMPANY LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #3b82f6;
+      padding: 4px;
+      object-fit: cover;
+    }
+
+    .footer-logo h2 {
+      font-size: 15px;
+       color: #cbd5e1;
+    }
+
+    /* ICON LIST */
+    .icon-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+       color: #cbd5e1;
+    }
+
+    .icon-text i {
+      width: 22px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #cbd5e1;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgb(124, 124, 203);;
+      color: #cbd5e1;
+      transform: translateY(-4px);
+      
+    }
+
+    /* APP BUTTONS */
+    .app-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .app-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      color: #cbd5e1;
+       text-decoration: none;
+       font-size: 15px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .app-buttons a:hover {
+      background: rgb(124, 124, 203);
+      color: #cbd5e1;
+    }
+
+    .app-buttons i {
+      font-size: 22px;
+    }
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+      background: #0f172a;
+      text-align: left;
+      padding-left:100px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 0px;
+      padding-top: 20px;
+      font-size: 15px;
+      color: #dbeafe;
+      height: 70px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    @media (max-width: 768px) {
+      .footer-logo h2 {
+        font-size: 20px;
+      }
+
+      .footer-box h3 {
+        font-size: 20px;
+      }
+
+      .footer-box p,
+      .footer-box a,
+      .footer-box li {
+        font-size: 15px;
+      }
+
+      .app-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+     .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .quick-links-box {
+      max-width: 350px;
+    }
+
+    .quick-links-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .quick-links-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    .quick-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 15px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .quick-links a i {
+      color: #3b82f6;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      background: rgba(59, 130, 246, 0.12);
+      color: #ffffff;
+      transform: translateX(6px);
+    }
+
+    .quick-links a:hover i {
+      color: #60a5fa;
+    }
+
+    @media (max-width: 768px) {
+      .quick-links-title {
+        font-size: 24px;
+      }
+
+      .quick-links a {
+        font-size: 15px;
+      }
+    }
+    
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+   <nav class="navbar">
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="C:\Users\11th\Desktop\Yotor Project\image\logo1.jpg" alt="Yotor SACCO Logo">
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- NAV LINKS -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li class="dropdown" id="serviceDropdown">
+          <a href="#" onclick="toggleDropdown(event)">Service ▾</a>
+          <div class="dropdown-menu">
+            <a href="saving.html">Saving</a>
+            <a href="loan.html">Loan</a>
+            <a href="training.html">Training/Consultant</a>
+          </div>
+        </li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="vacancy.html">Vacancy</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+
+        <!-- MOBILE EXTRA -->
+        <div class="nav-mobile-extra">
+          <select class="language-select">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+          </select>
+
+          <button class="theme-toggle" onclick="toggleTheme()" id="mobileThemeBtn">
+            🌙 Dark / ☀ Bright
+          </button>
+        </div>
+      </ul>
+
+      <!-- DESKTOP RIGHT SIDE -->
+      <div class="right-actions">
+        <select class="language-select">
+          <option value="en">English</option>
+          <option value="am">Amharic</option>
+        </select>
+
+       <button class="theme-toggle" onclick="toggleTheme()" id="desktopThemeBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+ <a href="#" class="logo1">
+        <img src="image/loanimage.png" width="100%" height="200px" alt="Yotor SACCO Logo">
+      </a>
+  <!-- LOAN SERVICES -->
+  <section class="section">
+    <h2 class="section-title">Loan Services</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8" alt="Car Loan">
+        <div class="card-content">
+          <h3>Car Loan</h3>
+          <p>Financial support for purchasing a personal or commercial vehicle.</p>
+          <p class="more-text">This loan is suitable for members who want to improve transportation for family use, taxi service, logistics, or business operations.</p>
+          <button class="btn toggle-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="House Loan">
+        <div class="card-content">
+          <h3>House Loan</h3>
+          <p>Loan service designed to help customers build, buy, or renovate houses.</p>
+          <p class="more-text">It provides financial assistance for home construction, property purchase, and improvement projects based on customer needs and eligibility.</p>
+          <button class="btn toggle-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4" alt="Business Expansion Loan">
+        <div class="card-content">
+          <h3>Business Expansion Loan</h3>
+          <p>Supports entrepreneurs and businesses that want to grow and expand operations.</p>
+          <p class="more-text">This loan can be used for equipment purchase, branch opening, stock increase, market growth, and other business development activities.</p>
+          <button class="btn toggle-btn">Read More</button>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" alt="Construction Loan">
+        <div class="card-content">
+          <h3>Construction Loan</h3>
+          <p>Provides financing for construction and infrastructure-related projects.</p>
+          <p class="more-text">Ideal for customers involved in residential, commercial, or small-scale development projects requiring phased financial support.</p>
+          <button class="btn toggle-btn">Read More</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer>
+    <div class="footer-container">
+
+      <!-- COMPANY -->
+     
+   <!-- FOLLOW US -->
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/Yotor-Saccos-ltd-100086498942030/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/YotorSACCO"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://www.instagram.com/yotor_sacco/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/yotor-sacco"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@yotorsacco"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-box">
+        <h3>Services</h3>
+        <div class="icon-text">
+          <a href="saving.html"><i class="fas fa-piggy-bank"></i> <span>Saving</span></a></div>
+        <div class="icon-text">
+          <a href="loan.html"><i class="fas fa-hand-holding-dollar"></i> <span>Loan</span></a></div>
+        <div class="icon-text">
+          <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> <span>Training</span></a></div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="footer-box">
+        <h3>Location</h3>
+        <div class="icon-text"><i class="fas fa-map-marker-alt"></i> <span>Addis Ababa, Ethiopia</span></div>
+        <div class="icon-text"><i class="fas fa-building"></i> <span>Main Office Building</span></div>
+        <div class="icon-text"><i class="fas fa-location-dot"></i> <span>Near City Center</span></div>
+      </div>
+
+      <!-- CONTACT US -->
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <div class="icon-text"><i class="fas fa-phone"></i> <span>+251 944448333</span></div>
+        <div class="icon-text"><i class="fas fa-envelope"></i> <span>info@yotorsaccco.com</span></div>
+        <div class="icon-text"><i class="fas fa-globe"></i> <span>www.yotorsaccco.com</span></div>
+      </div>
+    <section class="quick-links-section">
+    <div class="container">
+      <div class="quick-links-box">
+        <h2 class="quick-links-title">Quick Links</h2>
+
+        <ul class="quick-links">
+          <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+          <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+     
+      <!-- MOBILE APP -->
+      <div class="footer-box">
+        <h3>Get Our Mobile App</h3>
+        <p>Download our app for easy access to saving, loan, and member services.</p>
+        <div class="app-buttons">
+          <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="#"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yotor SACCO. All Rights Reserved.</p>
+    </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".toggle-btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function () {
+        const moreText = this.previousElementSibling;
+
+        if (moreText.style.display === "block") {
+          moreText.style.display = "none";
+          this.textContent = "Read More";
+        } else {
+          moreText.style.display = "block";
+          this.textContent = "Read Less";
+        }
+      });
+    });
+     function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        localStorage.setItem("theme", "light");
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    };
+  </script>
+
+</body>
+</html>

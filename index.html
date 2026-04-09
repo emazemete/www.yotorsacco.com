@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yotor SACCO - Home</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+      --bg-color: #ffffff;
+      --text-color: #222;
+      --header-bg: #0d47a1;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.18);
+      --card-bg: #f4f7fb;
+      --select-bg: #ffffff;
+      --select-text: #0d47a1;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --header-bg: #1e1e1e;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.12);
+      --card-bg: #1b1b1b;
+      --select-bg: #2c2c2c;
+      --select-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+   
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background: var(--header-bg);
+      color: var(--header-text);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      position: relative;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--header-text);
+      padding-left: 100px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #0d47a1;
+      padding: 3px;
+    }
+
+    .logo h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* NAV */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--header-text);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      display: block;
+    }
+
+    .nav-links a:hover {
+      background: var(--menu-hover);
+    }
+
+     .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      color: #0d47a1;
+      padding: 12px 15px;
+      border-radius: 0;
+      font-size: 15px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #e3f2fd;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* LANGUAGE */
+    .language-select {
+      padding: 8px 8px;
+      border-radius:10px;
+      border: none;
+      outline: none;
+      background:  #0d47a1;
+      color:  white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      background: #0d47a1;
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* MOBILE BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--header-text);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* RIGHT ACTIONS */
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1000px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        display: none;
+        gap: 8px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a,
+      .language-select,
+      .theme-toggle {
+        width: 100%;
+      }
+
+      .right-actions {
+        display: none;
+      }
+
+      .nav-mobile-extra {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (min-width: 1001px) {
+      .nav-mobile-extra {
+        display: none;
+      }
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f9ff;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+   
+
+    .logo span {
+      color: #ffd700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* =========================
+       HERO SLIDER
+    ========================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 90, 0.55);
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      color: white;
+      max-width: 650px;
+      z-index: 2;
+      animation: fadeUp 1s ease;
+    }
+
+    .slide-content h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .slide-content h1 span {
+      color: #ffd700;
+    }
+
+    .slide-content p {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0056b3;
+    }
+
+    .btn-primary:hover {
+      background: #ffd700;
+      color: #003f88;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dot.active {
+      background: #ffd700;
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(-40%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+    .section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      color: #003f88;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: rgb(255, 255, 255);
+      border-radius: 16px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: white;
+      color: #0056b3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .service-card p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .more-text {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .read-btn {
+      background: none;
+      border: none;
+      color: #0056b3;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .read-btn:hover {
+      color: #003f88;
+      text-decoration: underline;
+    }
+
+    /* =========================
+       WHY CHOOSE US
+    ========================= */
+    .why-section {
+      background: rgb(255, 255, 255); ;
+      color:linear-gradient(135deg, #003f88, #0056b3);
+      border-radius: 25px;
+      padding: 60px 40px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .why-card {
+      background:rgb(252, 250, 250);
+      padding: 28px 24px;
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.16);
+    }
+
+    .why-card i {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+
+    .why-card h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+    
+    .why-card p {
+      line-height: 1.7;
+      color:black;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 900px) {
+      .slide-content h1 {
+        font-size: 38px;
+      }
+
+      .slide-content p {
+        font-size: 18px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        height: 80vh;
+      }
+
+      .slide-content {
+        left: 6%;
+        right: 6%;
+        max-width: 100%;
+      }
+
+      .slide-content h1 {
+        font-size: 32px;
+      }
+
+      .slide-content p {
+        font-size: 17px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+     .partners-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #131212;
+      margin-bottom: 18px;
+    }
+
+    .section-text {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #475569;
+    }
+
+    .partners-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .partners-track {
+      display: flex;
+      width: max-content;
+      animation: scrollPartners 25s linear infinite;
+      gap: 25px;
+    }
+
+    .partner-card {
+      min-width: 220px;
+      height: 120px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    }
+
+    .partner-card img {
+      max-width: 140px;
+      max-height: 70px;
+      object-fit: contain;
+      filter: hue-rotate(100%);
+      opacity: 0.85;
+      transition: all 0.3s ease;
+    }
+
+    .partner-card:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    @keyframes scrollPartners {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 30px;
+      }
+
+      .section-text {
+        font-size: 15px;
+      }
+
+      .partner-card {
+        min-width: 180px;
+        height: 100px;
+      }
+
+      .partner-card img {
+        max-width: 120px;
+        max-height: 60px;
+      }
+    }
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* FOOTER */
+    
+    /* FOOTER */
+    footer {
+      background: #0d47a1;
+       color: #cbd5e1;
+      padding: 60px 20px 25px;
+      margin-top: 50px;
+      font-size: 14px;
+      
+      
+      
+    }
+
+    .footer-container {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 35px;
+    }
+
+    .footer-box h3 {
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      
+    }
+
+    .footer-box h3::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background: #90caf9;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 3px;
+    }
+
+    .footer-box p,
+    .footer-box a,
+    .footer-box li {
+     color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.9;
+      text-decoration: none;
+      list-style: none;
+      transition: 0.3s;
+      
+      
+    }
+
+    .footer-box ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+      
+    }
+
+    .footer-box ul li a:hover {
+      color: #e1cbcb;
+      padding-left: 6px;
+      
+    }
+
+    /* COMPANY LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #3b82f6;
+      padding: 4px;
+      object-fit: cover;
+    }
+
+    .footer-logo h2 {
+      font-size: 15px;
+       color: #cbd5e1;
+    }
+
+    /* ICON LIST */
+    .icon-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+       color: #cbd5e1;
+    }
+
+    .icon-text i {
+      width: 22px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #cbd5e1;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgb(124, 124, 203);;
+      color: #cbd5e1;
+      transform: translateY(-4px);
+      
+    }
+
+    /* APP BUTTONS */
+    .app-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .app-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      color: #cbd5e1;
+       text-decoration: none;
+       font-size: 15px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .app-buttons a:hover {
+      background: rgb(124, 124, 203);
+      color: #cbd5e1;
+    }
+
+    .app-buttons i {
+      font-size: 22px;
+    }
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+      background: #0f172a;
+      text-align: left;
+      padding-left:100px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 0px;
+      padding-top: 20px;
+      font-size: 15px;
+      color: #dbeafe;
+      height: 70px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    @media (max-width: 768px) {
+      .footer-logo h2 {
+        font-size: 20px;
+      }
+
+      .footer-box h3 {
+        font-size: 20px;
+      }
+
+      .footer-box p,
+      .footer-box a,
+      .footer-box li {
+        font-size: 15px;
+      }
+
+      .app-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+     .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .quick-links-box {
+      max-width: 350px;
+    }
+
+    .quick-links-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .quick-links-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    .quick-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 15px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .quick-links a i {
+      color: #3b82f6;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      background: rgba(59, 130, 246, 0.12);
+      color: #ffffff;
+      transform: translateX(6px);
+    }
+
+    .quick-links a:hover i {
+      color: #60a5fa;
+    }
+
+    @media (max-width: 768px) {
+      .quick-links-title {
+        font-size: 24px;
+      }
+
+      .quick-links a {
+        font-size: 15px;
+      }
+    }
+    
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+  <header>
+    <nav class="navbar">
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="image/logo1.jpg" alt="Yotor SACCO Logo">
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- NAV LINKS -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li class="dropdown" id="serviceDropdown">
+          <a href="#" onclick="toggleDropdown(event)">Service ▾</a>
+          <div class="dropdown-menu">
+            <a href="saving.html">Saving</a>
+            <a href="loan.html">Loan</a>
+            <a href="training.html">Training/Consultant</a>
+          </div>
+        </li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="vacancy.html">Vacancy</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+
+        <!-- MOBILE EXTRA -->
+        <div class="nav-mobile-extra">
+          <select class="language-select">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+          </select>
+
+          <button class="theme-toggle" onclick="toggleTheme()" id="mobileThemeBtn">
+            🌙 Dark / ☀ Bright
+          </button>
+        </div>
+      </ul>
+
+      <!-- DESKTOP RIGHT SIDE -->
+      <div class="right-actions">
+        <select class="language-select">
+          <option value="en">English</option>
+          <option value="am">Amharic</option>
+        </select>
+
+       <button class="theme-toggle" onclick="toggleTheme()" id="desktopThemeBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  
+
+  <!-- =========================
+       HERO SLIDER
+  ========================= -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <!-- Slide 1 -->
+      <div class="slide" src="image/image 4.JPG" alt="Yotor SACCO" style="background-image: url('image/image 4.JPG');  ">
+        <div class="slide-content">
+          <h1>Welcome to <span>Yotor SACCO</span></h1>
+          <p>Your trusted partner in savings, loans, and financial growth for a better future.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Join Us Today</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" src="image/image 5.png" alt="Yotor SACCO" style="background-image: url('image/image 5.JPG');">
+        <div class="slide-content">
+          <h1>Save Today, <span>Grow Tomorrow</span></h1>
+          <p>We empower members with secure savings plans and affordable financial services.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Start Saving</a>
+            <a href="#" class="btn btn-secondary">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" src="image/image1.JPG" alt="Yotor SACCO" style="background-image: url('image/image1.JPG');  ">
+        <div class="slide-content">
+          <h1>Supporting <span>Members & Community</span></h1>
+          <p>Building financial strength through cooperation, trust, and shared opportunity.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Apply for Loan</a>
+            <a href="#why" class="btn btn-secondary">Why Choose Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </section>
+
+  <!-- =========================
+       SERVICES
+  ========================= -->
+  <section class="section" id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Saving -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3>Saving Services</h3>
+        <p>Secure and flexible savings plans to help members build strong financial habits.</p>
+        <div class="more-text">
+          Our saving services encourage regular deposits, financial discipline, and long-term stability. Members can save for emergencies, education, family needs, and future investment opportunities.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+      <!-- Loans -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+        <h3>Loan Services</h3>
+        <p>Affordable and member-friendly loans for personal, business, and emergency needs.</p>
+        <div class="more-text">
+          Yotor SACCO provides accessible loan opportunities with fair terms, helping members improve livelihoods, grow businesses, solve urgent financial challenges, and invest in meaningful development.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+      <!-- Training -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>Training & Consultant</h3>
+        <p>Practical training and advisory support to improve financial knowledge and business growth.</p>
+        <div class="more-text">
+          We offer capacity-building programs, cooperative awareness, financial literacy sessions, and professional consultation to strengthen members, staff, and the wider community.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+      <!-- Extra Service 1 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <h3>Member Support</h3>
+        <p>Dedicated support and guidance for all members at every stage of their SACCO journey.</p>
+        <div class="more-text">
+          Our team helps members understand saving, loan access, account processes, cooperative participation, and service benefits to ensure a smooth and supportive experience.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+      <!-- Extra Service 2 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Financial Growth Programs</h3>
+        <p>Programs designed to promote financial inclusion, development, and long-term member success.</p>
+        <div class="more-text">
+          These programs help members improve budgeting, planning, income management, and sustainable financial growth while encouraging stronger community participation and resilience.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+      <!-- Extra Service 3 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Business Support</h3>
+        <p>Helping entrepreneurs and small businesses access opportunities through SACCO services.</p>
+        <div class="more-text">
+          Members with small businesses can benefit from financing support, financial advice, planning guidance, and cooperative opportunities that promote enterprise development.
+        </div>
+        <button class="read-btn" onclick="toggleRead(this)">Read More</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       WHY CHOOSE YOTOR SACCO
+  ========================= -->
+  <section class="section" id="why">
+    <div class="why-section">
+      <div class="section-title" style="margin-bottom: 20px;">
+        <h2 style="color: blue;"></i>Why Choose Yotor SACCO?</i></h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Trusted & Secure</h3>
+          <p>We provide reliable and secure financial services that members can trust for their future.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fas fa-coins"></i>
+          <h3>Affordable Services</h3>
+          <p>Our savings and loan services are designed to be accessible, fair, and beneficial to members.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fas fa-people-group"></i>
+          <h3>Member Focused</h3>
+          <p>Everything we do is centered on improving the financial well-being of our members and community.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Training & Awareness</h3>
+          <p>We empower members through education, awareness, and financial knowledge for lasting success.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Cooperative Spirit</h3>
+          <p>We believe in unity, shared progress, and mutual support through strong cooperative values.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fas fa-seedling"></i>
+          <h3>Growth Opportunity</h3>
+          <p>We help members grow their savings, strengthen their businesses, and improve their livelihoods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="partners-section">
+    <div class="container">
+      <h2 class="section-title" style="font-size: 20px; color: #0d47a1;">Our Partners</h2>
+
+      <div class="partners-slider">
+        <div class="partners-track">
+          <!-- First Set -->
+          <div class="partner-card"><img src="image\agency.jpg" alt="Partner 1"></div>
+          <div class="partner-card"><img src="image/cbe1.jpg" alt="Partner 2"></div>
+          <div class="partner-card"><img src="image/abisiniya.png" alt="Partner 3"></div>
+          <div class="partner-card"><img src="image/ahadu.png" alt="Partner 4"></div>
+          
+          <!-- Duplicate Set for Smooth Infinite Scroll -->
+          <div class="partner-card"><img src="image/agency.jpg" alt="Partner 1"></div>
+          <div class="partner-card"><img src="image/cbe1.jpg" alt="Partner 2"></div>
+          <div class="partner-card"><img src="image/abisiniya.png" alt="Partner 3"></div>
+          <div class="partner-card"><img src="image/ahadu.png" alt="Partner 4"></div>
+      
+      </div>
+    </div>
+  </section>
+  <!-- =========================
+       FOOTER
+  ========================= -->
+<!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- COMPANY -->
+     
+   <!-- FOLLOW US -->
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/Yotor-Saccos-ltd-100086498942030/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/YotorSACCO"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://www.instagram.com/yotor_sacco/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/yotor-sacco"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@yotorsacco"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-box">
+        <h3>Services</h3>
+        <div class="icon-text">
+          <a href="saving.html"><i class="fas fa-piggy-bank"></i> <span>Saving</span></a></div>
+        <div class="icon-text">
+          <a href="loan.html"><i class="fas fa-hand-holding-dollar"></i> <span>Loan</span></a></div>
+        <div class="icon-text">
+          <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> <span>Training</span></a></div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="footer-box">
+        <h3>Location</h3>
+        <div class="icon-text"><i class="fas fa-map-marker-alt"></i> <span>Addis Ababa, Ethiopia</span></div>
+        <div class="icon-text"><i class="fas fa-building"></i> <span>Main Office Debrework Building </span></div>
+        <div class="icon-text"><i class="fas fa-location-dot"></i> <span>Near to Kekar Bulding</span></div>
+      </div>
+
+      <!-- CONTACT US -->
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <div class="icon-text"><i class="fas fa-phone"></i> <span>+251 944448333</span></div>
+        <div class="icon-text"><i class="fas fa-envelope"></i> <span>info@yotorsaccco.com</span></div>
+        <div class="icon-text"><i class="fas fa-globe"></i> <span>www.yotorsaccco.com</span></div>
+      </div>
+    <section class="quick-links-section">
+    <div class="container">
+      <div class="quick-links-box">
+        <h2 class="quick-links-title">Quick Links</h2>
+
+        <ul class="quick-links">
+          <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+          <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+     
+      <!-- MOBILE APP -->
+      <div class="footer-box">
+        <h3>Get Our Mobile App</h3>
+        <p>Download our app for easy access to saving, loan, and member services.</p>
+        <div class="app-buttons">
+          <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="#"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yotor SACCO. All Rights Reserved.</p>
+    </div>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+  <script>
+    // Slider
+    let currentSlide = 0;
+    const slides = document.getElementById("slides");
+    const dots = document.querySelectorAll(".dot");
+    const totalSlides = 3;
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentSlide].classList.add("active");
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }, 5000);
+
+    // Read More / Less
+    function toggleRead(button) {
+      const moreText = button.previousElementSibling;
+
+      if (moreText.style.display === "block") {
+        moreText.style.display = "none";
+        button.textContent = "Read More";
+      } else {
+        moreText.style.display = "block";
+        button.textContent = "Read Less";
+      }
+    }
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        localStorage.setItem("theme", "light");
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    };
+    
+  </script>
+
+</body>
+</html>

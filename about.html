@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Yotor SACCO</title>
+
+  <!-- Font Awesome Icons -->
+   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif; 
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f9ff;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #222;
+      --header-bg: #0d47a1;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.18);
+      --card-bg: #f4f7fb;
+      --select-bg: #ffffff;
+      --select-text: #0d47a1;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --header-bg: #1e1e1e;
+      --header-text: #ffffff;
+      --menu-hover: rgba(255, 255, 255, 0.12);
+      --card-bg: #1b1b1b;
+      --select-bg: #2c2c2c;
+      --select-text: #ffffff;
+    }
+
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background: var(--header-bg);
+      color: var(--header-text);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      position: relative;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--header-text);
+      padding-left: 100px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background:#0d47a1;
+      padding: 3px;
+    }
+
+    .logo h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* NAV */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--header-text);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      display: block;
+    }
+
+    .nav-links a:hover
+     {
+      background: var(--menu-hover);
+    }
+
+     .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      color: #0d47a1;
+      padding: 12px 15px;
+      border-radius: 0;
+      font-size: 15px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #e3f2fd;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* LANGUAGE */
+    .language-select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: #0d47a1;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      background:#0d47a1;
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* MOBILE BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--header-text);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* RIGHT ACTIONS */
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1000px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        display: none;
+        gap: 8px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a,
+      .language-select,
+      .theme-toggle {
+        width: 100%;
+      }
+
+      .right-actions {
+        display: none;
+      }
+
+      .nav-mobile-extra {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (min-width: 1001px) {
+      .nav-mobile-extra {
+        display: none;
+      }
+    }
+     .hero{
+      position:relative;
+      min-height: calc(100vh - 62px);
+      display:flex;
+      align-items:stretch;
+    }
+
+    .logo span {
+      color: #ffd700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* =========================
+       HERO SLIDER
+    ========================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 90, 0.55);
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      color: white;
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeUp 1s ease;
+    }
+
+    .slide-content h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .slide-content h1 span {
+      color: #ffd700;
+    }
+
+    .slide-content p {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(-40%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dot.active {
+      background: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+    .section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #003f88;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    /* =========================
+       HISTORY + IMPACT
+    ========================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.5fr;
+      gap: 40px;
+      align-items: start;
+      
+      
+    }
+
+    .history-box {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .history-box h3 {
+      font-size: 22px;
+      color: #003f88;
+      margin-bottom: 20px;
+    }
+
+    .history-box p {
+      font-size: 17px;
+      color: black;
+      line-height: 1.9;
+      margin-bottom: 16px;
+      text-align: justify;
+     
+
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .impact-card {
+      background: white;
+      padding: 28px 22px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .impact-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .impact-card i {
+      font-size: 32px;
+      color: #0056b3;
+      margin-bottom: 15px;
+    }
+
+    .impact-card h3 {
+      font-size: 30px;
+      color: #003f88;
+      margin-bottom: 8px;
+    }
+
+    .impact-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    /* =========================
+       MISSION / VISION / PURPOSE
+    ========================= */
+    .mvp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .mvp-card {
+      background:white;
+      color: blue;
+      padding: 35px 28px;
+      border-radius: 20px;
+      text-align: justify;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      word-spacing: 1px;
+    }
+
+    .mvp-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .mvp-card i {
+      font-size: 22px;
+      color: #ffd700;
+      margin-bottom: 18px;
+     
+    }
+
+    .mvp-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .mvp-card p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: black;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: #002b5e;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 70px;
+    }
+
+    footer p {
+      font-size: 15px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .slide-content h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        height: 70vh;
+      }
+
+      .slide-content {
+        left: 6%;
+        right: 6%;
+        max-width: 100%;
+      }
+
+      .slide-content h1 {
+        font-size: 32px;
+      }
+
+      .slide-content p {
+        font-size: 17px;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+     
+    .team-section {
+      width: 100%;
+      padding: 70px 8%;
+      background: #ffffff;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      color: #004aad;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: #666;
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      font-size: 30px;
+      color: #004aad;
+      margin-bottom: 25px;
+      border-left: 5px solid #004aad;
+      padding-left: 12px;
+      margin-top: 40px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .team-card {
+      background: #f9fbff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,74,173,0.12);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .team-content {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .team-content h4 {
+      font-size: 17px;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .team-role {
+      font-size: 15px;
+      color: #004aad;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .short-text {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .more-content {
+      display: none;
+      text-align: left;
+      background: #fff;
+      padding: 15px;
+      border-radius: 14px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .more-content p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .info-item i {
+      color: #004aad;
+      width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf2ff;
+      color: #004aad;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #004aad;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .toggle-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #004aad;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: #002f6c;
+    }
+
+    .extra-box {
+      background: linear-gradient(135deg, #004aad, #002f6c);
+      color: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,74,173,0.18);
+      margin-top: 30px;
+    }
+
+    .extra-box h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .extra-box p {
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: auto;
+      color: #e8f1ff;
+    }
+
+    @media (max-width: 768px) {
+      .section-header h2 {
+        font-size: 30px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .extra-box h3 {
+        font-size: 24px;
+      }
+    }
+     /* Modal */
+    .backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.6);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 100;
+    }
+    .modal{
+      width: min(720px, 100%);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(11,18,32,.92);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalTop{
+      padding: 14px 14px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modalTop h3{ margin:0; font-size: 16px; }
+    .modalTop .small{ margin-top: 6px; color: var(--muted); font-weight: 800; font-size: 13.5px; }
+    .closeBtn{
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 1000;
+      padding: 10px 12px;
+      cursor:pointer;
+    }
+    .modalBody{
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    @media (max-width: 650px){
+      .modalBody{ grid-template-columns: 1fr; }
+    }
+    .modalAvatar{
+      width: 90px; height: 90px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(106,166,255,.18), rgba(124,219,213,.12));
+      display:grid;
+      place-items:center;
+      font-weight: 1100;
+      letter-spacing: .4px;
+    }
+    .modalText p{
+      margin: 0 0 10px;
+      color: black;
+      font-weight: 720;
+    }
+    .modalList{
+      margin: 0; padding-left: 18px;
+      color: black;
+      font-weight: 720;
+    }
+    .modalActions{
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--border);
+      display:flex; gap: 10px; justify-content:flex-end; flex-wrap: wrap;
+    }
+    .primaryBtn{
+      border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(135deg, rgba(106,166,255,.35), rgba(124,219,213,.22));
+      color: black;
+      font-weight: 1000;
+      padding: 10px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+    }
+    .ghostBtn{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: black;
+      font-weight: 1000;
+      padding: 10px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+    }
+    
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin:0 0 14px;
+      color :blue;
+      font-size: 20px;
+      padding-left: 500px;
+      
+    }
+    .values{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .values{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 520px){ .values{grid-template-columns: 1fr;} }
+
+    .value{
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(33, 5, 5, 0.03);
+      padding: 16px;
+      min-height: 160px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .value .top{
+      display:flex; gap:12px; align-items:center;
+    }
+    .value .vicon{
+      width:46px; height:46px;
+      border-radius: 16px;
+      background: rgba(99,255,214,.12);
+      border:1px solid rgba(99,255,214,.25);
+      display:grid; place-items:center;
+      font-size: 30px;
+      flex:0 0 auto;
+    }
+    .value h3{margin:0; font-size:16px}
+    .value p{margin:0; color:black; font-size:17px}
+    .journey-section {
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 22px;
+      color: #003f88;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      font-size: 18px;
+      color: #666;
+      max-width: 760px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .journey-card {
+      background: white;
+      border-radius: 22px;
+      padding: 32px 26px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      border-top: 5px solid #0056b3;
+    }
+
+    .journey-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+    }
+
+    .journey-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #003f88, #0056b3);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 20px rgba(0, 86, 179, 0.25);
+    }
+
+    .journey-year {
+      display: inline-block;
+      background: #e8f1ff;
+      color: #0056b3;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 8px 14px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .journey-card h3 {
+      font-size: 18px;
+      color: #003f88;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .journey-card p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .journey-card::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      background: rgba(0, 86, 179, 0.05);
+      border-radius: 50%;
+      top: -40px;
+      right: -40px;
+    }
+
+    @media (max-width: 768px) {
+      .section-title h2 {
+        font-size: 22px;
+      }
+
+      .section-title p {
+        font-size: 15px;
+      }
+
+      .journey-card {
+        padding: 28px 22px;
+      }
+
+      .journey-card h3 {
+        font-size: 22px;
+      }
+    }
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d47a1;
+       color: #cbd5e1;
+      padding: 60px 20px 25px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 35px;
+    }
+
+    .footer-box h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-box h3::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background: #90caf9;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 3px;
+    }
+
+    .footer-box p,
+    .footer-box a,
+    .footer-box li {
+     color: #cbd5e1;
+      font-size: 16px;
+      line-height: 1.9;
+      text-decoration: none;
+      list-style: none;
+      transition: 0.3s;
+    }
+
+    .footer-box ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .footer-box ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-box ul li a:hover {
+      color: #cbd5e1;
+      padding-left: 6px;
+    }
+
+    /* COMPANY LOGO */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #3b82f6;
+      padding: 4px;
+      object-fit: cover;
+    }
+
+    .footer-logo h2 {
+      font-size: 18px;
+       color: #cbd5e1;
+    }
+
+    /* ICON LIST */
+    .icon-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+       color: #cbd5e1;
+    }
+
+    .icon-text i {
+      width: 22px;
+      color: #cbd5e1;
+      font-size: 17px;
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #cbd5e1;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgb(124, 124, 203);;
+      color: #cbd5e1;
+      transform: translateY(-4px);
+    }
+
+    /* APP BUTTONS */
+    .app-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .app-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      color: #cbd5e1;
+       text-decoration: none;
+       font-size: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .app-buttons a:hover {
+      background: rgb(124, 124, 203);
+      color: #cbd5e1;
+    }
+
+    .app-buttons i {
+      font-size: 22px;
+    }
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 40px;
+      padding-top: 18px;
+      font-size: 15px;
+      color: #dbeafe;
+    }
+
+    @media (max-width: 768px) {
+      .footer-logo h2 {
+        font-size: 20px;
+      }
+
+      .footer-box h3 {
+        font-size: 20px;
+      }
+
+      .footer-box p,
+      .footer-box a,
+      .footer-box li {
+        font-size: 15px;
+      }
+
+      .app-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+     .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .quick-links-box {
+      max-width: 350px;
+    }
+
+    .quick-links-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .quick-links-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    .quick-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 15px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .quick-links a i {
+      color: #3b82f6;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      background: rgba(59, 130, 246, 0.12);
+      color: #ffffff;
+      transform: translateX(6px);
+    }
+
+    .quick-links a:hover i {
+      color: #60a5fa;
+    }
+
+    @media (max-width: 768px) {
+      .quick-links-title {
+        font-size: 24px;
+      }
+
+      .quick-links a {
+        font-size: 15px;
+      }
+    }
+       body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+ <header>
+  <nav class="navbar">
+
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <img src="image/logo1.jpg" alt="Yotor SACCO Logo">
+
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- NAV LINKS -->
+       <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+         <li class="dropdown" id="serviceDropdown">
+          <a href="#" onclick="toggleDropdown(event)">Service ▾</a>
+          <div class="dropdown-menu">
+            <a href="saving.html">Saving</a>
+            <a href="loan.html">Loan</a>
+            <a href="training.html">Training/Consultant</a>
+          </div>
+        </li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="vacancy.html">Vacancy</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+
+
+        <!-- MOBILE EXTRA -->
+        <div class="nav-mobile-extra">
+          <select class="language-select">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+          </select>
+
+          <button class="theme-toggle" onclick="toggleTheme()" id="mobileThemeBtn">
+            🌙 Dark / ☀ Bright
+          </button>
+        </div>
+      </ul>
+
+      <!-- DESKTOP RIGHT SIDE -->
+      <div class="right-actions">
+        <select class="language-select">
+          <option value="en">English</option>
+          <option value="am">Amharic</option>
+        </select>
+
+       <button class="theme-toggle" onclick="toggleTheme()" id="desktopThemeBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+    </nav>
+</header>
+  <!-- =========================
+       HERO SLIDER
+  ========================= -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <!-- Slide 1 -->
+      <div class="slide" src="image/image 5.png" alt="Yotor SACCO" style="background-image: url('image/image 5.JPG');">;">
+        <div class="slide-content">
+          <h1>About <span>Yotor SACCO</span></h1>
+          <p>Building financial strength through trust, savings, and member cooperation.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" src="image/image 4.png" alt="Yotor SACCO" style="background-image: url('image/image 4.JPG');">;">
+        <div class="slide-content">
+          <h1>Growing Together <span>With Purpose</span></h1>
+          <p>Empowering members through affordable financial services and shared progress.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" src="image/imagehome.JPG" alt="Yotor SACCO" style="background-image: url('image/imagehome.JPG');">;">
+        <div class="slide-content">
+          <h1>Our Story of <span>Community Impact</span></h1>
+          <p>Creating opportunities and supporting members toward sustainable development.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </section>
+
+  <!-- =========================
+       HISTORY + IMPACT
+  ========================= -->
+  <section class="section">
+    <div class="section-title">
+      </div>
+
+    <div class="about-grid">
+      <!-- Left: History -->
+      <div class="history-box">
+        <h3>Our History</h3>
+        <p>
+          Yotor SACCO was established with the vision of creating a strong financial cooperative
+          that supports members through savings, affordable loans, and shared economic progress.
+        </p>
+        <p>
+          Since its foundation, the SACCO has worked to improve the financial well-being of its members
+          by encouraging a culture of saving, responsible borrowing, and cooperative participation.
+        </p>
+        <p>
+          Over the years, Yotor SACCO has continued to grow in membership, strengthen its services,
+          and build trust within the community through transparency, inclusion, and service excellence.
+        </p>
+        <p>
+          Today, Yotor SACCO remains committed to empowering individuals, families, and businesses
+          through sustainable financial opportunities and cooperative values.
+        </p>
+      </div>
+
+      <!-- Right: Key Impacts -->
+      <div class="impact-grid">
+        <div class="impact-card">
+          <i class="fas fa-users"></i>
+          <h3>5,000+</h3>
+          <p>Total Members</p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fas fa-hand-holding-dollar"></i>
+          <h3>150M+</h3>
+          <p>Total Loan Distributed</p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>18%</h3>
+          <p>Member Growth</p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fas fa-piggy-bank"></i>
+          <h3>8M+</h3>
+          <p>Total Savings Mobilized</p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>400+</h3>
+          <p>Business Support Cases</p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>50+</h3>
+          <p>Training Sessions Held</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       MISSION / VISION / PURPOSE
+  ========================= -->
+  <section class="section">
+    <div class="section-title">
+      
+    </div>
+
+    <div class="mvp-grid">
+      <div class="mvp-card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>
+          To provide reliable, accessible, and member-focused financial services that promote savings,
+          credit access, financial literacy, and sustainable socio-economic growth.
+        </p>
+      </div>
+
+      <div class="mvp-card">
+        <i class="fas fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>
+          To become a leading and trusted SACCO that transforms the lives of members through
+          financial empowerment, innovation, and cooperative excellence.
+        </p>
+      </div>
+
+      <div class="mvp-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Our Purpose</h3>
+        <p>
+          To strengthen the economic capacity of our members by creating opportunities for saving,
+          borrowing, learning, and growing together in a cooperative spirit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Core Values -->
+    <section id="values">
+      <div class="section-title">
+        <h2><span aria-hidden="true">💎</span><b>Core Values</b></h2>
+      </div>
+      <div class="values">
+        <div class="value">
+          <div class="top">
+            <div class="vicon" aria-hidden="true">🤝</div>
+            <h3>Integrity</h3>
+          </div>
+          <p>We do the right thing—clearly, consistently, and responsibly.</p>
+        </div>
+
+        <div class="value">
+          <div class="top">
+            <div class="vicon" aria-hidden="true">🧠</div>
+            <h3>Innovation</h3>
+          </div>
+          <p>We improve continuously by learning, testing, and adapting.</p>
+        </div>
+
+        <div class="value">
+          <div class="top">
+            <div class="vicon" aria-hidden="true">🧭</div>
+            <h3>Accountability</h3>
+          </div>
+          <p>We own outcomes, respect timelines, and communicate openly.</p>
+        </div>
+
+        <div class="value">
+          <div class="top">
+            <div class="vicon" aria-hidden="true">💚</div>
+            <h3>Customer Focus</h3>
+          </div>
+          <p>We design around real needs and support people with empathy.</p>
+        </div>
+      </div>
+
+   
+ <section class="team-section">
+    <div class="section-header">
+      <h2>Leadership Boards & Staff</h2>
+      <p>
+        Meet the leadership board and dedicated staff of Yotor Saving and Credit Cooperative Society Ltd.
+        Our team works together to deliver trusted financial services and support our members’ growth.
+      </p>
+    </div>
+
+    <!-- Leadership Board -->
+    <h3 class="section-title">Leadership Boards</h3>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img src="image/gizach.png" alt="Chairperson">
+        <div class="team-content">
+          <h4>Mr. Gizachew Mulgeta</h4>
+          <p class="team-role">Board Chairperson</p>
+          <p class="short-text">Provides strategic leadership and overall direction for Yotor SACCO.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Gizachew Mulgeta leads the board in setting policies, strategic goals, and governance standards for the cooperative.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 001</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> gizachew@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> 10+ Years Leadership Experience</div>
+          </div>
+
+    
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="" alt="Vice Chairperson">
+        <div class="team-content">
+          <h4>Mr. Beaman Admu</h4>
+          <p class="team-role">Vice Chairperson</p>
+          <p class="short-text">Supports board leadership and cooperative strategic development.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Beaman Admu assists in governance oversight and ensures active participation in SACCO leadership responsibilities.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 002</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> beaman@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> Cooperative Governance Specialist</div>
+          </div>
+
+         
+        </div>
+      </dteam-card">
+        <img src="image/bin.JPG" alt="Secretary">
+        <div class="team-content">
+          <h4>Mr. Biniyam Muluken</h4>
+          <p class="team-role">Board Secretary</p>
+          <p class="short-text">Coordinates meetings, records decisions, and supports board administration.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Biniyam Muluken manages board communication, meeting minutes, and official cooperative records.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 003</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> Biniyam@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> Administration & Records Expert</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Staff -->
+    <h3 class="section-title">Our Staff</h3>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img src="https://imag" alt="Manager">
+        <div class="team-content">
+          <h4>Mr. Tewodros Geremew</h4>
+          <p class="team-role">General Manager</p>
+          <p class="short-text">Oversees daily Yotor SACCO operations and member service delivery.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Tewodros Geremew manages operations, staff coordination, and implementation of SACCO service strategies.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 010</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> tedi@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> Operations & Member Services</div>
+          </div>
+
+        
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="image/kindu.jpg" alt="Loan Officer">
+        <div class="team-content">
+          <h4>Mr. Kindalem Demelash</h4>
+          <p class="team-role">Human Resource Manager</p>
+          <p class="short-text">Supports members with loan applications, approvals, and financial advice.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Kindalem Demelash assists members in accessing loan services and promotes responsible financial planning.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 011</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> kindu@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> Human Resource Services</div>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img src="ht" alt="Customer Service Officer">
+        <div class="team-content">
+          <h4>Mr. Fasil Molla</h4>
+          <p class="team-role">Finanace Manager</p>
+          <p class="short-text">Handles member inquiries, support, and front-office communication.</p>
+
+          <button class="toggle-btn" onclick="toggleDetails(this)">View More</button>
+
+          <div class="more-content">
+            <p>Mr. Fasil Molla ensures excellent member support, account guidance, and daily customer service operations.</p>
+            <div class="info-item"><i class="fas fa-phone"></i> +251 900 000 012</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> fasil@yotorsacco.com</div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> Finance & Support</div>
+          </div>
+
+         
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+   <section class="journey-section">
+    <div class="section-title">
+      <h2>Our Journey</h2>
+      
+    </div>
+
+    <div class="journey-grid">
+
+      <!-- 2024 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-seedling"></i></div>
+        <span class="journey-year">2026</span>
+        <h3>Foundation Strengthening</h3>
+        <p>
+          Yotor SACCO focused on strengthening internal operations, improving service quality,
+          and building a stronger foundation for sustainable growth.
+        </p>
+      </div>
+
+      <!-- 2025 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-users"></i></div>
+        <span class="journey-year">2026</span>
+        <h3>Membership Expansion</h3>
+        <p>
+          The SACCO expanded its membership base, increased savings participation,
+          and enhanced financial inclusion within the community.
+        </p>
+      </div>
+
+      <!-- 2026 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-laptop-code"></i></div>
+        <span class="journey-year">2026</span>
+        <h3>Digital Transformation</h3>
+        <p>
+          Yotor SACCO introduced modern digital systems to improve efficiency,
+          transparency, and better service delivery for all members.
+        </p>
+      </div>
+
+      <!-- 2027 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-mobile-alt"></i></div>
+        <span class="journey-year">2027</span>
+        <h3>Mobile App Launch</h3>
+        <p>
+          The SACCO launched its mobile application to allow members to access services,
+          account updates, and loan information more conveniently.
+        </p>
+      </div>
+
+      <!-- 2028 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-coins"></i></div>
+        <span class="journey-year">2028</span>
+        <h3>2 Billion Asset Yotor SACCO</h3>
+        <p>
+          Yotor SACCO proudly reached a 2 Billion Asset milestone, showing strong financial growth,
+          trust, and the collective success of its members.
+        </p>
+      </div>
+
+      <!-- 2029 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-handshake"></i></div>
+        <span class="journey-year">2029</span>
+        <h3>Community Partnership Growth</h3>
+        <p>
+          The SACCO expanded collaboration and support programs that strengthened businesses,
+          livelihoods, and cooperative community development.
+        </p>
+      </div>
+
+      <!-- 2030 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-chart-line"></i></div>
+        <span class="journey-year">2030</span>
+        <h3>Financial Growth Leadership</h3>
+        <p>
+          Yotor SACCO continued to lead in savings, loans, and financial empowerment
+          through innovation and member-centered service excellence.
+        </p>
+      </div>
+
+      <!-- 2031 -->
+      <div class="journey-card">
+        <div class="journey-icon"><i class="fas fa-trophy"></i></div>
+        <span class="journey-year">2031</span>
+        <h3>Excellence & Future Vision</h3>
+        <p>
+          With a clear future vision, Yotor SACCO advanced toward excellence,
+          long-term sustainability, and stronger impact for future generations.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- =========================
+   
+   FOOTER -->
+  <footer>
+    <div class="footer-container">
+
+    
+     
+   <!-- FOLLOW US -->
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/p/Yotor-Saccos-ltd-100086498942030/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/YotorSACCO"><i class="fab fa-telegram-plane"></i></a>
+          <a href="https://www.instagram.com/yotor_sacco/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/yotor-sacco"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@yotorsacco"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-box">
+        <h3>Services</h3>
+        <div class="icon-text">
+          <a href="saving.html"><i class="fas fa-piggy-bank"></i> <span>Saving</span></a></div>
+        <div class="icon-text">
+          <a href="loan.html"><i class="fas fa-hand-holding-dollar"></i> <span>Loan</span></a></div>
+        <div class="icon-text">
+          <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> <span>Training</span></a></div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="footer-box">
+        <h3>Location</h3>
+        <div class="icon-text"><i class="fas fa-map-marker-alt"></i> <span>Addis Ababa, Ethiopia</span></div>
+        <div class="icon-text"><i class="fas fa-building"></i> <span>Main Office  Debrework Building</span></div>
+        <div class="icon-text"><i class="fas fa-location-dot"></i> <span>Near Kaker Bulding</span></div>
+      </div>
+
+      <!-- CONTACT US -->
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <div class="icon-text"><i class="fas fa-phone"></i> <span>+251 944448333</span></div>
+        <div class="icon-text"><i class="fas fa-envelope"></i> <span>info@yotorsaccco.com</span></div>
+        <div class="icon-text"><i class="fas fa-globe"></i> <span>www.yotorsaccco.com</span></div>
+      </div>
+    <section class="quick-links-section">
+    <div class="container">
+      <div class="quick-links-box">
+        <h2 class="quick-links-title">Quick Links</h2>
+
+        <ul class="quick-links">
+          <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+          <li><a href="services.html"><i class="fas fa-briefcase"></i> Services</a></li>
+          <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+     
+      <!-- MOBILE APP -->
+      <div class="footer-box">
+        <h3>Get Our Mobile App</h3>
+        <p>Download our app for easy access to saving, loan, and member services.</p>
+        <div class="app-buttons">
+          <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+          <a href="#"><i class="fab fa-apple"></i> App Store</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yotor SACCO. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT
+  ========================= -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slides");
+    const dots = document.querySelectorAll(".dot");
+    const totalSlides = 3;
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentSlide].classList.add("active");
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }, 5000);
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        localStorage.setItem("theme", "light");
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const desktopBtn = document.getElementById("desktopThemeBtn");
+      const mobileBtn = document.getElementById("mobileThemeBtn");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        desktopBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        mobileBtn.innerHTML = '☀ Bright Mode';
+      } else {
+        desktopBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        mobileBtn.innerHTML = '🌙 Dark Mode';
+      }
+    };
+    function toggleDetails(button) {
+      const content = button.nextElementSibling;
+
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        button.textContent = "View More";
+      } else {
+        content.style.display = "block";
+        button.textContent = "View Less";
+      }
+    }
+  </script>
+
+</body>
+</html>
