@@ -338,7 +338,7 @@
     }
 
     .slide-content p {
-      font-size: 20px;
+      font-size: 26px;
       line-height: 1.7;
       margin-bottom: 20px;
     }
@@ -515,20 +515,7 @@
       color: black;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-    footer {
-      background: #002b5e;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 70px;
-    }
-
-    footer p {
-      font-size: 15px;
-    }
+    
 
     /* =========================
        RESPONSIVE
@@ -926,6 +913,7 @@
       font-size: 22px;
       color: #003f88;
       margin-bottom: 12px;
+      text-align: center;
     }
 
     .section-title p {
@@ -1009,7 +997,7 @@
 
     @media (max-width: 768px) {
       .section-title h2 {
-        font-size: 22px;
+       font-size: clamp(18px, 5vw, 40px);
       }
 
       .section-title p {
@@ -1028,30 +1016,21 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    font-family: 'Times New Roman', Times, serif;}
 
     body {
       background: #f5f7fa;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      
-    }
-
-    body {
-      background: #f5f7fa;
-    }
-
-    /* FOOTER */
+     /* FOOTER */
     footer {
       background: #0d47a1;
        color: #cbd5e1;
       padding: 60px 20px 25px;
       margin-top: 50px;
+      font-size: 16px;
+      font-family: 'Times New Roman', Times, serif;
+      
     }
 
     .footer-container {
@@ -1066,6 +1045,7 @@
       font-size: 18px;
       margin-bottom: 20px;
       position: relative;
+      
     }
 
     .footer-box h3::after {
@@ -1088,6 +1068,8 @@
       text-decoration: none;
       list-style: none;
       transition: 0.3s;
+      
+      
     }
 
     .footer-box ul {
@@ -1097,11 +1079,13 @@
 
     .footer-box ul li {
       margin-bottom: 10px;
+      
     }
 
     .footer-box ul li a:hover {
-      color: #cbd5e1;
+      color: #e1cbcb;
       padding-left: 6px;
+      
     }
 
     /* COMPANY LOGO */
@@ -1122,7 +1106,7 @@
     }
 
     .footer-logo h2 {
-      font-size: 18px;
+      font-size: 15px;
        color: #cbd5e1;
     }
 
@@ -1137,8 +1121,8 @@
 
     .icon-text i {
       width: 22px;
-      color: #cbd5e1;
-      font-size: 17px;
+      color: #a2c6f2;
+      font-size: 15px;
     }
 
     /* SOCIAL ICONS */
@@ -1147,25 +1131,27 @@
       gap: 14px;
       margin-top: 12px;
       flex-wrap: wrap;
+      
     }
 
     .social-icons a {
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       background: rgba(255,255,255,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       color: #cbd5e1;
-      font-size: 16px;
+      font-size: 15px;
       transition: 0.3s ease;
     }
 
     .social-icons a:hover {
-      background: rgb(124, 124, 203);;
+      background: rgb(124, 124, 203);
       color: #cbd5e1;
       transform: translateY(-4px);
+      
     }
 
     /* APP BUTTONS */
@@ -1183,7 +1169,7 @@
       background: rgba(255,255,255,0.12);
       color: #cbd5e1;
        text-decoration: none;
-       font-size: 16px;
+      font-size: 16px;
       padding: 12px 16px;
       border-radius: 10px;
       width: fit-content;
@@ -1202,12 +1188,16 @@
 
     /* FOOTER BOTTOM */
     .footer-bottom {
-      text-align: center;
+      background: #0f172a;
+      text-align: left;
+      padding-left:100px;
       border-top: 1px solid rgba(255,255,255,0.2);
-      margin-top: 40px;
-      padding-top: 18px;
-      font-size: 15px;
+      margin-top: 0px;
+      padding-top: 20px;
+      font-size: 16px;
       color: #dbeafe;
+      height: 70px;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     @media (max-width: 768px) {
@@ -1222,7 +1212,7 @@
       .footer-box p,
       .footer-box a,
       .footer-box li {
-        font-size: 15px;
+        font-size: 16px;
       }
 
       .app-buttons a {
@@ -1241,8 +1231,8 @@
     }
 
     .quick-links-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 28px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
       font-weight: 700;
       margin-bottom: 25px;
       position: relative;
@@ -1306,7 +1296,8 @@
         font-size: 15px;
       }
     }
-       body {
+    
+    body {
       background: var(--bg-color);
       color: var(--text-color);
       transition: background 0.3s ease, color 0.3s ease;
@@ -1527,7 +1518,7 @@
     <!-- Core Values -->
     <section id="values">
       <div class="section-title">
-        <h2><span aria-hidden="true">💎</span><b>Core Values</b></h2>
+        <h2><span aria-hidden="true"></span><b>Core Values</b></h2>
       </div>
       <div class="values">
         <div class="value">
@@ -1578,7 +1569,7 @@
     <div class="team-grid">
 
       <div class="team-card">
-        <img src="image/gizach.png" alt="Chairperson">
+        <img src="image/a.png" alt="Chairperson">
         <div class="team-content">
           <h4>Mr. Gizachew Mulgeta</h4>
           <p class="team-role">Board Chairperson</p>
@@ -1712,7 +1703,7 @@
 
     <div class="journey-grid">
 
-      <!-- 2024 -->
+      <!-- 2026 -->
       <div class="journey-card">
         <div class="journey-icon"><i class="fas fa-seedling"></i></div>
         <span class="journey-year">2026</span>
@@ -1723,7 +1714,7 @@
         </p>
       </div>
 
-      <!-- 2025 -->
+      <!-- 2026 -->
       <div class="journey-card">
         <div class="journey-icon"><i class="fas fa-users"></i></div>
         <span class="journey-year">2026</span>
@@ -1875,11 +1866,11 @@
       </div>
 
     </div>
-
+ </footer>
     <div class="footer-bottom">
       <p>&copy; 2026 Yotor SACCO. All Rights Reserved.</p>
     </div>
-  </footer>
+ 
 
   <!-- JAVASCRIPT
   ========================= -->
